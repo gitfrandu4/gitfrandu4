@@ -15,4 +15,5 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 
 https://github.com/anuraghazra
+https://kardev07.hashnode.dev/make-your-github-profile-look-explicit
 -->
