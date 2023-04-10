@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-👋 Hi, I'm Francisco Javier López-Dufour Morales! I'm a passionate web developer who loves working with JavaScript, TypeScript, Next.js, and Vercel. My experience also includes PHP and other web technologies.
+👋 Hi, I'm Francisco J! I'm a passionate web developer who loves working with JavaScript, TypeScript, Next.js, and Vercel. My experience also includes PHP and other web technologies.
 
 🌐 I focus on creating accessible web applications and am currently learning native mobile development to expand my skillset.
 
