@@ -2,7 +2,7 @@
 
 👋 Hi, I'm Francisco J! I'm a passionate web developer who loves working with JavaScript, TypeScript, Next.js, and Vercel. My experience also includes PHP and other web technologies.
 
-🌐 I focus on creating accessible web applications and am currently learning native mobile development to expand my skillset.
+<!-- 🌐 I focus on creating accessible web applications and I am currently learning native mobile development to expand my skillset. -->
 
 📚 "Sometimes it is the people no one can imagine anything of who do the things no one can imagine." - Alan Turing
 
