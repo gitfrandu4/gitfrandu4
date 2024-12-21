@@ -6,7 +6,7 @@ Welcome to my GitHub profile! I'm a Software Developer who loves turning ideas i
 
 ## 🚀 About Me
 
-- 💼 **Software Developer at [B2B IT](https://www.b2bit.es/)**
+- 💼 **Software Developer**
 - 🎓 **Computer Engineering** from *Universidad de Las Palmas de Gran Canaria*
 - ☁️ **Cloud Enthusiast:** Passionate about AWS and scalable cloud architectures
 - 🐳 **Containerization Fanatic:** Dockerizing applications for fun and efficiency
