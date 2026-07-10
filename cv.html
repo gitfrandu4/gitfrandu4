@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Javier López-Dufour Morales — Desarrollador de software · Las Palmas</title>
-  <meta name="description" content="Desarrollador de software full stack y DevOps: aplicaciones web, sistemas de gestión empresarial, automatización e IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
+  <title>CV — Francisco López-Dufour · Desarrollador full stack</title>
+  <meta name="description" content="Currículum de Francisco Javier López-Dufour Morales, desarrollador de software full stack y DevOps en Las Palmas de Gran Canaria. Remoto o presencial.">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Francisco Javier López-Dufour Morales — Desarrollador de software">
-  <meta property="og:description" content="Full stack y DevOps · Automatización · IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
+  <meta property="og:title" content="Currículum — Francisco Javier López-Dufour Morales">
+  <meta property="og:description" content="Versión imprimible del currículum: desarrollador de software full stack y DevOps. Las Palmas de Gran Canaria — remoto o presencial.">
   <meta property="og:image" content="https://gitfrandu4.github.io/assets/retrato-color.jpg">
-  <meta property="og:url" content="https://gitfrandu4.github.io/">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Retrato de Francisco Javier López-Dufour Morales">
+  <meta property="og:url" content="https://gitfrandu4.github.io/cv.html">
   <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://gitfrandu4.github.io/cv.html">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314506B'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23FBFAF7' text-anchor='middle'%3EFL%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +26,11 @@
     "@type": "Person",
     "name": "Francisco Javier López-Dufour Morales",
     "jobTitle": "Desarrollador de software full stack y DevOps",
+    "url": "https://gitfrandu4.github.io/",
+    "image": "https://gitfrandu4.github.io/assets/retrato-color.jpg",
     "email": "mailto:jdelhorno@gmail.com",
+    "worksFor": { "@type": "Organization", "name": "B2B IT" },
+    "knowsLanguage": ["es", "en"],
     "address": { "@type": "PostalAddress", "addressLocality": "Las Palmas de Gran Canaria", "addressCountry": "ES" },
     "alumniOf": "Universidad de Las Palmas de Gran Canaria",
     "sameAs": [
@@ -434,9 +443,11 @@
 
     /* ---------- Impresión (A4, objetivo: 2 páginas) ---------- */
     @media print {
-      @page { size: A4; margin: 10mm 11mm; }
+      @page { size: A4; margin: 9mm 11mm; }
       :root { --papel: #ffffff; }
       body { font-size: 0.8rem; line-height: 1.45; }
+      /* La animación de entrada dejaría la cabecera en opacity:0 al imprimir en headless */
+      .cabecera { animation: none !important; }
       .hoja { max-width: none; padding: 0; }
       .btn-imprimir, .contornos { display: none; }
       .cabecera { padding-block: 0 1rem; gap: 1.5rem; }
@@ -451,7 +462,7 @@
       .contacto { margin-top: 1rem; }
       .retrato img { width: 90px; height: 90px; }
       /* El raíl lateral se pliega (como en móvil) para aprovechar el ancho A4 */
-      .bloque { grid-template-columns: 1fr; row-gap: 0.5rem; padding-block: 0.65rem; }
+      .bloque { grid-template-columns: 1fr; row-gap: 0.35rem; padding-block: 0.5rem; }
       .rotulo { position: static; }
       .rotulo h2::before { display: inline-block; margin: 0 0.7em 0.18em 0; }
       .rotulo-nota { display: inline; margin-left: 0.6em; }
@@ -464,23 +475,23 @@
       #proyectos { break-before: page; }
       /* Proyectos a dos columnas, como las certificaciones */
       #proyectos .contenido { columns: 2; column-gap: 1.8rem; }
-      .proyecto + .proyecto { margin-top: 0.5rem; }
+      .proyecto + .proyecto { margin-top: 0.35rem; }
       .proyecto h3 { font-size: 0.95rem; }
       .proyecto p { max-width: none; }
-      .proyectos-grupo + .proyectos-grupo { margin-top: 0.65rem; padding-top: 0.55rem; }
-      .grupo-titulo { font-size: 0.68rem; margin-bottom: 0.6rem; break-after: avoid; }
+      .proyectos-grupo + .proyectos-grupo { margin-top: 0.45rem; padding-top: 0.4rem; }
+      .grupo-titulo { font-size: 0.68rem; margin-bottom: 0.4rem; break-after: avoid; }
       .rotulo { break-after: avoid; }
       .proyecto .tec { display: none; }
       .logros { margin-top: 0.4rem; }
       .logros li { margin-top: 0.25em; }
-      .certs { margin-top: 0.5rem; padding-top: 0.4rem; }
+      .certs { margin-top: 0.35rem; padding-top: 0.3rem; }
       .certs-lista { columns: 2; column-gap: 1.6rem; }
-      .certs-lista li { margin-top: 0; margin-bottom: 0.3em; break-inside: avoid; }
+      .certs-lista li { margin-top: 0; margin-bottom: 0.2em; break-inside: avoid; }
       .detalle { font-size: 0.74rem; max-width: none; }
-      .grupo + .grupo { margin-top: 0.3rem; }
-      .grupo h3 { margin-bottom: 0.1rem; break-after: avoid; }
+      .grupo + .grupo { margin-top: 0.2rem; }
+      .grupo h3 { margin-bottom: 0; break-after: avoid; }
       /* En papel, las aptitudes como líneas de texto en lugar de píldoras */
-      .pastillas { display: block; }
+      .pastillas { display: block; line-height: 1.3; }
       .pastillas li {
         display: inline;
         border: none;
@@ -530,6 +541,7 @@
         <p class="titular">Desarrollador de software · Full stack y DevOps</p>
         <ul class="contacto">
           <li>Las Palmas de Gran Canaria (remoto o presencial)</li>
+          <li><a href="tel:+34622741666">+34 622 741 666</a></li>
           <li><a href="mailto:jdelhorno@gmail.com">jdelhorno@gmail.com</a></li>
           <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin.com/in/frandu4</a></li>
           <li><a href="https://github.com/gitfrandu4" rel="me">github.com/gitfrandu4</a></li>
@@ -538,16 +550,17 @@
       </div>
 
       <figure class="retrato">
-        <img src="assets/retrato-color.jpg" alt="Retrato de Francisco Javier López-Dufour Morales" width="148" height="148">
+        <img src="assets/retrato-color-296.jpg" alt="Retrato de Francisco Javier López-Dufour Morales" width="148" height="148" decoding="async">
       </figure>
     </header>
 
     <hr class="regla">
 
+    <!-- SYNC: el texto de perfil, experiencia, proyectos y competencias está duplicado en index.html — replicar allí cualquier cambio y regenerar el PDF (ver README) -->
     <section class="bloque" id="perfil" aria-labelledby="t-perfil">
       <div class="rotulo"><h2 id="t-perfil">Perfil</h2></div>
       <div class="contenido">
-        <p class="lead">Más de cuatro años construyendo sistemas de gestión que empresas de transporte y logística usan a diario. Actualmente coordino el día a día de la plataforma: revisiones de código, dailys, infraestructura y despliegues. Creo en <em>ejecutar bien</em> —código limpio, tests y automatización— y busco un equipo con buenas prácticas donde seguir creciendo.</p>
+        <p class="lead">Llevo más de cuatro años desarrollando sistemas de gestión (ERP) que empresas de transporte, logística y obras utilizan a diario. Actualmente coordino el ciclo de desarrollo de la plataforma —revisiones de código, reuniones diarias, infraestructura y despliegues a producción—, con atención a la <em>calidad</em> del código, las pruebas y la automatización. Me gusta formar parte de un equipo con buenas prácticas donde seguir creciendo.</p>
       </div>
     </section>
 
@@ -558,17 +571,16 @@
         <article class="puesto">
           <div class="cuando">
             <time datetime="2024-03">mar. 2024 — <br>actualidad</time>
-            <span class="duracion">2 años y 5 meses</span><br>
             Las Palmas · Híbrido
           </div>
           <div class="que">
             <h3>B2B IT</h3>
             <p class="rol">Desarrollador de software</p>
             <ul class="logros">
-              <li>Liderazgo del día a día de la plataforma —el ERP a medida de un grupo de transporte, logística y obras—: dailys, revisiones de código y seguimiento de cada versión hasta producción.</li>
-              <li>Operación y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) sobre DigitalOcean y Coolify.</li>
-              <li>Automatización de procesos de negocio: menos trabajo manual y menos errores en el día a día.</li>
-              <li>Integración de la API de OpenAI —la tecnología detrás de ChatGPT— en productos y herramientas internas, por ejemplo para extraer información de documentos de forma automática.</li>
+              <li>Coordinación de un equipo interdisciplinar de 5 personas en el desarrollo de la plataforma —ERP a medida para un grupo de transporte, logística y obras, con unos 200 usuarios—: reuniones diarias, revisiones de código y seguimiento de cada versión hasta su despliegue semanal en producción.</li>
+              <li>Administración y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) en DigitalOcean y Coolify.</li>
+              <li>Automatización de procesos de negocio, reduciendo el trabajo manual y los errores operativos.</li>
+              <li>Integración de la API de OpenAI en productos y herramientas internas; por ejemplo, extracción automática de información de documentos.</li>
             </ul>
           </div>
         </article>
@@ -583,7 +595,7 @@
             <h3>GRUPO1844</h3>
             <p class="rol">Desarrollador de software</p>
             <ul class="logros">
-              <li>Desarrollo y mantenimiento de módulos clave de un ERP —el sistema central de gestión— para empresas de transporte de pasajeros.</li>
+              <li>Desarrollo y mantenimiento de módulos clave de un ERP para empresas de transporte de pasajeros, con cerca de 1000 usuarios.</li>
               <li>Automatización de procesos internos con impacto directo en la eficiencia operativa del negocio.</li>
               <li>Desarrollo de APIs para conectar el sistema con servicios externos.</li>
             </ul>
@@ -600,8 +612,8 @@
             <h3>2Coders Studio</h3>
             <p class="rol">Desarrollador en prácticas</p>
             <ul class="logros">
-              <li>Colaboración en el desarrollo de proyectos web con Laravel (PHP), participando en el ciclo de vida completo del software.</li>
-              <li>Base sólida en bases de datos relacionales y control de versiones (Git).</li>
+              <li>Desarrollo de proyectos web con Laravel (PHP), participando en todo el ciclo de vida del software.</li>
+              <li>Uso de bases de datos relacionales y control de versiones (Git) en proyectos reales.</li>
             </ul>
           </div>
         </article>
@@ -618,13 +630,13 @@
 
           <article class="proyecto">
             <h3>Seguimiento de flotas en tiempo real</h3>
-            <p>Plataforma que muestra en directo dónde está cada vehículo y qué recorrido ha hecho, fluida incluso moviendo grandes volúmenes de posiciones GPS.</p>
+            <p>Plataforma que muestra en directo la posición y el recorrido de una flota de más de 400 vehículos, con un rendimiento fluido incluso con grandes volúmenes de posiciones GPS.</p>
             <span class="tec">PHP (CodeIgniter) · JavaScript · WebGL · MySQL</span>
           </article>
 
           <article class="proyecto">
             <h3>«Montador»: planificador de servicios de logística y obras</h3>
-            <p>Tablero visual con el que el equipo de operaciones organiza el día a día: servicios pendientes, conductores disponibles, vehículos y pedidos en un solo lugar.</p>
+            <p>Tablero visual con el que el equipo de operaciones planifica su trabajo: servicios pendientes, conductores disponibles, vehículos y pedidos en una sola vista.</p>
             <span class="tec">PHP (CodeIgniter) · React · MySQL</span>
           </article>
 
@@ -636,7 +648,7 @@
 
           <article class="proyecto">
             <h3>Servicio de integraciones en .NET</h3>
-            <p>Pieza que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
+            <p>Servicio que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
             <span class="tec">C# · .NET</span>
           </article>
         </div>
@@ -652,7 +664,7 @@
 
           <article class="proyecto">
             <h3><a href="https://github.com/gitfrandu4/yolo-plate-recognition" data-repo="yolo-plate-recognition">Lectura automática de matrículas en vídeo <span class="flecha">↗</span></a></h3>
-            <p>Sistema que detecta y lee matrículas de coches en vídeo mediante visión por computador, en tiempo real.</p>
+            <p>Sistema que detecta y lee en tiempo real matrículas de vehículos en vídeo mediante visión artificial.</p>
             <span class="tec">Python · YOLO · OCR · OpenCV</span>
           </article>
         </div>
@@ -666,15 +678,15 @@
 
         <article class="grado">
           <h3>Grado en Ingeniería Informática</h3>
-          <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · 2016 — actualidad</p>
-          <span class="detalle">Pendiente únicamente del Trabajo de Fin de Grado, en curso: sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (C.H.U.I.M.I., Las Palmas).</span>
+          <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · finalización prevista: 2026</p>
+          <span class="detalle">Pendiente únicamente del Trabajo de Fin de Grado (en curso): sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (CHUIMI, Las Palmas). Compaginado con trabajo en el sector desde 2020.</span>
         </article>
 
         <div class="certs">
           <p class="grupo-titulo">Formación complementaria</p>
           <ul class="certs-lista">
             <li>Curso de Testing para PYMES <span>— Escuela de Organización Industrial (EOI), 2024</span>
-              <span class="detalle">TDD, tests unitarios, de integración y E2E (Cypress), testing en React y CI/CD con GitHub Actions y GitLab.</span></li>
+              <span class="detalle">TDD, pruebas unitarias, de integración y E2E (Cypress), testing en React y CI/CD con GitHub Actions y GitLab.</span></li>
             <li>Programa de Visualización de Datos <span>— Escuela de Organización Industrial (EOI), 2023</span>
               <span class="detalle">Data storytelling con Tableau y Power BI, y análisis espacial con Elastic (ELK) y QGIS.</span></li>
             <li>Introducción al desarrollo de apps Android con Kotlin <span>— SPEGC, 2022 – 2023</span>
@@ -684,18 +696,23 @@
           </ul>
         </div>
 
+        <div class="certs">
+          <p class="grupo-titulo">Actualmente</p>
+          <span class="detalle">Integraciones con Azure y flujos de automatización con n8n autoalojado.</span>
+        </div>
+
       </div>
     </section>
 
     <section class="bloque" id="aptitudes" aria-labelledby="t-apt">
-      <div class="rotulo"><h2 id="t-apt">Aptitudes</h2></div>
+      <div class="rotulo"><h2 id="t-apt">Competencias</h2></div>
       <div class="contenido">
 
         <div class="grupo">
           <h3>Lenguajes</h3>
           <ul class="pastillas">
             <li class="destacada">JavaScript</li>
-            <li class="destacada">TypeScript</li>
+            <li>TypeScript</li>
             <li class="destacada">PHP</li>
             <li>Python</li>
             <li>C#</li>
@@ -725,7 +742,6 @@
             <li class="destacada">CI/CD (GitHub Actions y GitLab)</li>
             <li>Coolify</li>
             <li>AWS</li>
-            <li>Azure (aprendiendo)</li>
             <li>Git y GitHub</li>
             <li>Linux</li>
           </ul>
@@ -739,21 +755,19 @@
             <li>MongoDB</li>
             <li class="destacada">API de OpenAI</li>
             <li>Automatización con n8n</li>
-            <li>Visión por computador (OpenCV)</li>
+            <li>Visión artificial (OpenCV)</li>
             <li>Power BI y Tableau</li>
             <li>Elastic Stack (ELK)</li>
           </ul>
         </div>
 
         <div class="grupo">
-          <h3>Calidad y equipo</h3>
+          <h3>Calidad</h3>
           <ul class="pastillas">
-            <li class="destacada">Código limpio</li>
-            <li>Revisión de código</li>
-            <li>TDD y testing automatizado</li>
+            <li class="destacada">Revisión de código</li>
+            <li class="destacada">TDD y testing automatizado</li>
             <li>Cypress</li>
             <li>Scrum</li>
-            <li class="destacada">Trabajo en equipo</li>
           </ul>
         </div>
 
@@ -765,7 +779,7 @@
       <div class="contenido">
         <ul class="idiomas">
           <li>Español <span>Nativo</span></li>
-          <li>Inglés <span>Competencia básica profesional</span></li>
+          <li>Inglés <span>B1 — lectura fluida de documentación técnica</span></li>
         </ul>
       </div>
     </section>
