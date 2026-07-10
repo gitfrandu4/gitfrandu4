@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francisco Javier López-Dufour Morales — Desarrollador de software · Full stack y DevOps</title>
+  <meta name="description" content="Desarrollador de software full stack y DevOps en Las Palmas de Gran Canaria. Sistemas de gestión, seguimiento de flotas en tiempo real, automatización e IA aplicada. Remoto o presencial.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Francisco Javier López-Dufour Morales — Desarrollador de software">
+  <meta property="og:description" content="Full stack y DevOps · Automatización · IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
+  <meta property="og:image" content="https://gitfrandu4.github.io/assets/retrato-color.jpg">
+  <meta property="og:url" content="https://gitfrandu4.github.io/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314506B'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23FBFAF7' text-anchor='middle'%3EFL%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Francisco Javier López-Dufour Morales",
+    "jobTitle": "Desarrollador de software full stack y DevOps",
+    "email": "mailto:jdelhorno@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Las Palmas de Gran Canaria", "addressCountry": "ES" },
+    "alumniOf": "Universidad de Las Palmas de Gran Canaria",
+    "sameAs": [
+      "https://www.linkedin.com/in/frandu4/",
+      "https://github.com/gitfrandu4"
+    ]
+  }
+  </script>
+  <style>
+    /* ============ Tokens compartidos con cv.html, en claro y oscuro ============ */
+    :root {
+      color-scheme: light dark;
+      --papel:  light-dark(#FBFAF7, #0F161D);
+      --tinta:  light-dark(#1E2B33, #E9E4D8);
+      --bruma:  light-dark(#5D6B72, #8FA0A8);
+      --atl:    light-dark(#14506B, #74B4CC);
+      --atl-2:  light-dark(#0D3A50, #A3D2E4);
+      --arena:  light-dark(#B08D57, #C9A76B);
+      --linea:  light-dark(#E5E1D6, #232F38);
+      --velo:   light-dark(rgba(251, 250, 247, 0.85), rgba(15, 22, 29, 0.85));
+      --sombra: light-dark(rgba(30, 43, 51, 0.12), rgba(0, 0, 0, 0.5));
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="light"] { color-scheme: light; }
+    [data-theme="dark"] { color-scheme: dark; }
+
+    @property --ang {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--arena); color: #fff; }
+
+    a {
+      color: var(--atl);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color .15s ease;
+    }
+    a:hover { color: var(--atl-2); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--atl);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* El cambio de tema no debe difuminarse: lo recorta el clip-path del script */
+    ::view-transition-old(root), ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+
+    /* ============ La isla: el progreso de lectura es la ruta ============ */
+    .isla {
+      position: fixed;
+      inset: 0 0 0 auto;
+      height: 100vh;
+      width: clamp(300px, 36vw, 480px);
+      z-index: 0;
+      pointer-events: none;
+      mask-image: linear-gradient(90deg, transparent, black 26%);
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 26%);
+    }
+    .isla .contorno { fill: none; stroke: var(--atl); stroke-opacity: 0.14; }
+    .isla .contorno.arena { stroke: var(--arena); stroke-opacity: 0.18; }
+    .isla .laspalmas { fill: var(--arena); }
+    .isla .destino { fill: none; stroke: var(--arena); stroke-opacity: 0.6; }
+    .isla .ruta-base {
+      fill: none;
+      stroke: var(--atl);
+      stroke-opacity: 0.16;
+      stroke-width: 1.5;
+    }
+    .isla .ruta-progreso {
+      fill: none;
+      stroke: var(--atl);
+      stroke-opacity: 0.85;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 0; /* sin scroll-timeline: la ruta se muestra completa */
+    }
+    .isla .aqui {
+      display: none; /* solo aparece si el JS conduce la ruta */
+      offset-path: path("M348 102 C 320 200, 220 250, 205 340 C 190 430, 320 470, 300 570 C 282 662, 175 700, 190 800 C 200 866, 240 915, 228 962");
+      offset-rotate: 0deg;
+    }
+    .isla .aqui-nucleo {
+      fill: var(--arena);
+      filter: drop-shadow(0 0 6px var(--arena));
+    }
+    /* La ruta la conduce un lerp con rAF (persecución suave + trinquete: solo avanza).
+       Sin JS o con movimiento reducido: ruta completa y sin bola. */
+    html.js-ruta .isla .ruta-progreso { stroke-dashoffset: 100; }
+    html.js-ruta .isla .aqui { display: block; }
+    /* El pulso escala solo el núcleo. Nunca en el elemento con offset-path:
+       el scale multiplicaría la traslación de la ruta y la bola daría saltos. */
+    @media (prefers-reduced-motion: no-preference) {
+      .isla .aqui-nucleo {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: latir 2.4s ease-in-out infinite;
+      }
+      @keyframes latir { 50% { scale: 1.3; opacity: 0.75; } }
+    }
+
+    /* ============ Navegación ============ */
+    .nav {
+      position: fixed;
+      inset: 10px 10px auto 10px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1040px;
+      margin-inline: auto;
+      padding: 0.55rem 0.9rem;
+      background: var(--velo);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--linea);
+      border-radius: 14px;
+      box-shadow: inset 0 1px 0 light-dark(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.05));
+      z-index: 50;
+    }
+    .nav-logo {
+      font: 600 0.95rem/1 var(--serif);
+      color: var(--tinta);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--arena); }
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      margin-left: auto;
+      list-style: none;
+      font: 500 0.78rem/1 var(--mono);
+    }
+    .nav-links a { color: var(--bruma); text-decoration: none; }
+    .nav-links a:hover { color: var(--atl); }
+    .chip-nav {
+      font: 500 0.74rem/1 var(--mono);
+      color: var(--atl);
+      border: 1px solid color-mix(in srgb, var(--atl) 40%, var(--linea));
+      border-radius: 999px;
+      padding: 0.55em 1em;
+      text-decoration: none;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    .chip-nav:hover { border-color: var(--atl); color: var(--atl-2); }
+    .tema {
+      font-size: 1rem;
+      line-height: 1;
+      background: none;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      color: var(--tinta);
+      display: grid;
+      place-items: center;
+    }
+    .tema:hover { border-color: var(--atl); }
+    .tema .si-oscuro { display: none; }
+    @media (prefers-color-scheme: dark) {
+      [data-theme="auto"] .tema .si-claro { display: none; }
+      [data-theme="auto"] .tema .si-oscuro { display: block; }
+    }
+    [data-theme="dark"] .tema .si-claro { display: none; }
+    [data-theme="dark"] .tema .si-oscuro { display: block; }
+
+    .lienzo {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    /* ============ Cabecera ============ */
+    .heroe {
+      min-height: min(88svh, 780px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(1.5rem, 5vw, 4rem);
+      align-items: center;
+      align-content: center;
+      padding-top: 5rem;
+    }
+    .heroe-texto { max-width: 560px; }
+    .miga {
+      font: 500 0.76rem/1.6 var(--mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--atl);
+      margin-bottom: 1.4rem;
+    }
+    .miga::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: var(--arena);
+      margin-right: 0.7em;
+      vertical-align: 0.25em;
+    }
+    h1 {
+      font: 500 clamp(2.1rem, 5.2vw, 3.2rem)/1.08 var(--serif);
+      letter-spacing: -0.02em;
+      text-box: trim-both cap alphabetic;
+    }
+    .rol-principal {
+      margin-top: 1.1rem;
+      font-size: clamp(1.02rem, 2vw, 1.18rem);
+      color: var(--bruma);
+    }
+    .rol-principal strong { color: var(--tinta); font-weight: 600; }
+    .enlaces {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.9rem;
+      list-style: none;
+    }
+    .enlaces a {
+      display: inline-block;
+      font: 500 0.76rem/1 var(--mono);
+      color: var(--tinta);
+      text-decoration: none;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 0.65em 1.05em;
+      transition: border-color .3s var(--ease), color .3s var(--ease), translate .3s var(--ease);
+    }
+    .enlaces a:hover { border-color: var(--atl); color: var(--atl); translate: 0 -2px; }
+    .enlaces a.principal { border-color: color-mix(in srgb, var(--atl) 45%, var(--linea)); color: var(--atl); }
+    /* Respuesta táctil: el clic se nota */
+    :is(.enlaces a, .otras-vias a, .chip-nav, .tema, .nav-links a):active { translate: 0 1px; }
+    .tarjeta:active { translate: 0 -1px; scale: 0.99; }
+
+    .retrato {
+      width: clamp(150px, 22vw, 224px);
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 50% 20%;
+      border-radius: 18px;
+      border: 1px solid var(--linea);
+      box-shadow: 0 24px 60px -32px var(--sombra);
+    }
+
+    /* ============ Secciones ============ */
+    section { padding-block: clamp(3.2rem, 9vh, 5.5rem); border-top: 1px solid var(--linea); }
+    .heroe { border-top: none; }
+    h2 {
+      font: 600 clamp(1.5rem, 3vw, 1.9rem)/1.2 var(--serif);
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+    h2::before {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--arena);
+      margin-bottom: 1rem;
+    }
+
+    /* Revelado al entrar en el viewport: una sola vez, sin marcha atrás */
+    @media (prefers-reduced-motion: no-preference) {
+      html.js-reveal .reveal {
+        opacity: 0;
+        translate: 0 18px;
+        filter: blur(8px);
+      }
+      html.js-reveal .reveal.a-la-vista {
+        opacity: 1;
+        translate: 0 0;
+        filter: blur(0);
+        transition: opacity .9s var(--ease), translate .9s var(--ease), filter .9s var(--ease);
+      }
+    }
+
+    /* ============ Perfil ============ */
+    .manifiesto {
+      font: 500 clamp(1.2rem, 2.4vw, 1.45rem)/1.6 var(--serif);
+      max-width: 32em;
+      text-wrap: pretty;
+    }
+    .manifiesto em { font-style: italic; color: var(--atl); }
+
+    /* ============ Experiencia ============ */
+    .puesto {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 0 2.4rem;
+      padding-block: 1.9rem;
+    }
+    .puesto + .puesto { border-top: 1px dashed var(--linea); }
+    .anio-caja { position: relative; }
+    .anio {
+      position: sticky;
+      top: 96px;
+      font-variant-numeric: tabular-nums;
+    }
+    .anio .rango {
+      font: 500 1.45rem/1.15 var(--mono);
+      letter-spacing: -0.04em;
+      color: color-mix(in srgb, var(--bruma) 42%, var(--papel));
+    }
+    .anio .rango b { display: block; font-weight: 500; color: var(--arena); }
+    .anio .cuando {
+      margin-top: 0.5rem;
+      font: 400 0.72rem/1.7 var(--mono);
+      color: var(--bruma);
+    }
+    .puesto h3 { font: 600 1.3rem/1.3 var(--serif); }
+    .rol { font: 500 0.92rem/1.5 var(--sans); color: var(--atl); margin-top: 0.1rem; }
+    .logros { list-style: none; margin-top: 0.9rem; max-width: 62ch; }
+    .logros li {
+      position: relative;
+      padding-left: 1.35em;
+      margin-top: 0.55em;
+      font-size: 0.96rem;
+      text-wrap: pretty;
+    }
+    .logros li::before { content: "—"; position: absolute; left: 0; color: var(--arena); }
+
+    /* ============ Proyectos ============ */
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .tarjeta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      border: 1px solid var(--linea);
+      border-radius: 16px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      background: var(--papel);
+      text-decoration: none;
+      color: var(--tinta);
+      transition: translate .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+    }
+    .tarjeta:hover {
+      translate: 0 -4px;
+      box-shadow: 0 18px 40px -22px var(--sombra);
+      color: var(--tinta);
+      border-color: transparent;
+      background:
+        linear-gradient(var(--papel), var(--papel)) padding-box,
+        conic-gradient(from var(--ang), var(--atl), var(--arena), var(--atl)) border-box;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .tarjeta:hover { animation: girar 2.8s linear infinite; }
+      @keyframes girar { to { --ang: 360deg; } }
+    }
+    .tarjeta .chip {
+      align-self: flex-start;
+      font: 500 0.68rem/1 var(--mono);
+      letter-spacing: 0.08em;
+      color: var(--atl);
+      border: 1px solid color-mix(in srgb, var(--atl) 35%, var(--linea));
+      border-radius: 999px;
+      padding: 0.45em 0.8em;
+    }
+    .tarjeta .chip.personal { color: var(--arena); border-color: color-mix(in srgb, var(--arena) 45%, var(--linea)); }
+    .tarjeta h3 { font: 600 1.1rem/1.35 var(--serif); text-wrap: balance; }
+    .tarjeta h3 .flecha { color: var(--arena); font-family: var(--sans); font-size: 0.9em; }
+    .tarjeta p { font-size: 0.92rem; color: var(--bruma); text-wrap: pretty; }
+    .tarjeta .tec {
+      margin-top: auto;
+      padding-top: 0.5rem;
+      font: 400 0.72rem/1.6 var(--mono);
+      color: var(--bruma);
+    }
+
+    /* ============ Formación e idiomas ============ */
+    .dos-columnas {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .grado h3 { font: 600 1.2rem/1.35 var(--serif); }
+    .grado .rol { margin-bottom: 0.4rem; }
+    .detalle { font-size: 0.88rem; color: var(--bruma); max-width: 55ch; text-wrap: pretty; }
+    .lista-simple { list-style: none; margin-top: 1.2rem; }
+    .lista-simple li { font-size: 0.92rem; padding-block: 0.5em; border-top: 1px dashed var(--linea); }
+    .lista-simple li span { color: var(--bruma); font-size: 0.85rem; }
+    .sub-rotulo {
+      font: 500 0.72rem/1 var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bruma);
+      margin: 1.6rem 0 0.4rem;
+    }
+    .idiomas { list-style: none; }
+    .idiomas li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-block: 0.5em;
+      font-size: 0.95rem;
+    }
+    .idiomas li + li { border-top: 1px dashed var(--linea); }
+    .idiomas span { color: var(--bruma); font-size: 0.88rem; }
+
+    /* ============ Aptitudes ============ */
+    .grupo + .grupo { margin-top: 1.4rem; }
+    .grupo h3 { font: 600 0.85rem/1.5 var(--sans); margin-bottom: 0.55rem; }
+    .pastillas { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .pastillas li {
+      font: 400 0.85rem/1 var(--sans);
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 0.45em 0.9em;
+      transition: border-color .15s ease, translate .15s ease;
+    }
+    .pastillas li:hover { border-color: var(--arena); translate: 0 -2px; }
+    .pastillas li.destacada { border-color: color-mix(in srgb, var(--atl) 40%, var(--linea)); color: var(--atl); }
+
+    /* ============ Contacto ============ */
+    .correo {
+      display: inline-block;
+      font: 500 clamp(1.5rem, 4vw, 2.4rem)/1.25 var(--serif);
+      font-style: italic;
+      letter-spacing: -0.01em;
+      color: var(--atl);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 6px;
+      text-decoration-color: color-mix(in srgb, var(--arena) 65%, transparent);
+    }
+    .correo:hover { color: var(--atl-2); text-decoration-color: var(--arena); }
+    .otras-vias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.6rem;
+      list-style: none;
+    }
+    .otras-vias a {
+      font: 500 0.76rem/1 var(--mono);
+      color: var(--tinta);
+      text-decoration: none;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 0.65em 1.05em;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    .otras-vias a:hover { border-color: var(--atl); color: var(--atl); }
+
+    .pie {
+      border-top: 1px solid var(--linea);
+      padding-block: 1.6rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem 2rem;
+      font: 400 0.72rem/1.7 var(--mono);
+      color: var(--bruma);
+    }
+    .pie a { color: inherit; }
+    .pie a:hover { color: var(--atl); }
+
+    /* ============ Responsive ============ */
+    @media (max-width: 760px) {
+      .nav { inset: 8px 8px auto 8px; gap: 0.7rem; }
+      .nav-links { display: none; }
+      .isla { width: 88vw; right: -30vw; opacity: 0.55; }
+      .heroe {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-block: 6.2rem 2.5rem;
+      }
+      .retrato { order: -1; width: 128px; border-radius: 14px; }
+      .puesto { grid-template-columns: 1fr; row-gap: 0.5rem; }
+      .anio { position: static; }
+      .anio .rango b { display: inline; }
+      .dos-columnas { grid-template-columns: 1fr; }
+      .tarjetas { grid-template-columns: 1fr; }
+    }
+
+    /* Esta página no es para imprimir: para papel está cv.html */
+    @media print {
+      .nav, .isla { display: none; }
+      section { break-inside: avoid; }
+      .reveal { animation: none !important; opacity: 1 !important; translate: none !important; filter: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Gran Canaria en curvas de nivel. La ruta se dibuja al leer: el punto arena marca por dónde vas. -->
+  <svg class="isla" viewBox="0 0 440 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="contorno" d="M230 30c57-7 114 13 151 48 33 31 51 75 46 121-4 48-28 92-68 121-37 27-85 39-131 33-48-7-92-31-120-68C80 248 69 200 80 154c11-48 44-88 85-107 21-11 44-15 65-17Z"/>
+    <path class="contorno arena" d="M232 68c46-5 92 11 120 39 27 25 40 60 36 96-4 40-24 75-55 97-31 23-69 32-106 26-40-5-75-25-97-55-20-27-29-65-20-103 8-38 34-70 68-86 17-9 36-13 54-14Z"/>
+    <path class="contorno" d="M233 106c35-3 69 9 90 30 20 18 30 45 27 72-3 30-18 56-41 72-23 17-52 24-79 19-30-4-56-19-72-40-16-21-22-50-16-77 7-28 27-52 51-64 12-7 26-10 40-12Z"/>
+    <path class="contorno arena" d="M234 146c23-2 46 6 59 20 13 12 20 29 18 47-2 20-12 37-27 48-15 11-34 15-53 12-20-3-36-12-47-26-10-14-14-33-10-50 4-19 17-34 33-43 9-5 18-7 27-8Z"/>
+    <path class="contorno" d="M235 184c12-1 24 3 31 11 6 7 10 15 9 24-1 10-7 19-14 24-8 6-18 8-27 7-10-1-18-7-24-13-5-8-8-18-5-27 2-9 8-17 17-22 4-2 9-3 13-4Z"/>
+    <circle class="laspalmas" cx="348" cy="102" r="4"/>
+    <path class="ruta-base" d="M348 102 C 320 200, 220 250, 205 340 C 190 430, 320 470, 300 570 C 282 662, 175 700, 190 800 C 200 866, 240 915, 228 962"/>
+    <path class="ruta-progreso" pathLength="100" d="M348 102 C 320 200, 220 250, 205 340 C 190 430, 320 470, 300 570 C 282 662, 175 700, 190 800 C 200 866, 240 915, 228 962"/>
+    <g class="aqui"><circle class="aqui-nucleo" r="5"/></g>
+    <circle class="destino" cx="228" cy="962" r="8"/>
+  </svg>
+
+  <nav class="nav" aria-label="Principal">
+    <a class="nav-logo" href="#top">F<span>·</span>LD</a>
+    <ul class="nav-links">
+      <li><a href="#experiencia">experiencia</a></li>
+      <li><a href="#proyectos">proyectos</a></li>
+      <li><a href="#formacion">formación</a></li>
+      <li><a href="#contacto">contacto</a></li>
+    </ul>
+    <button class="tema" type="button" aria-label="Cambiar tema claro u oscuro">
+      <svg class="si-claro" aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="si-oscuro" aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a class="chip-nav" href="CV-Francisco-Lopez-Dufour.pdf">cv · pdf</a>
+  </nav>
+
+  <main class="lienzo" id="top">
+
+    <header class="heroe">
+      <div class="heroe-texto">
+        <p class="miga">Las Palmas de Gran Canaria · remoto o presencial</p>
+        <h1>Francisco Javier<br>López&#8209;Dufour Morales</h1>
+        <p class="rol-principal">Desarrollador de software — <strong>full stack y DevOps</strong>. Sistemas de gestión para transporte y logística, seguimiento de flotas en tiempo real, automatización e IA aplicada.</p>
+        <ul class="enlaces">
+          <li><a class="principal" href="CV-Francisco-Lopez-Dufour.pdf">cv en pdf ↓</a></li>
+          <li><a href="mailto:jdelhorno@gmail.com">jdelhorno@gmail.com</a></li>
+          <li><a href="https://github.com/gitfrandu4" rel="me">github</a></li>
+          <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin</a></li>
+          <li><a href="cv.html">versión documento</a></li>
+        </ul>
+      </div>
+      <img class="retrato" src="assets/retrato-bn.jpg" alt="Retrato en blanco y negro de Francisco Javier López-Dufour Morales" width="224" height="280">
+    </header>
+
+    <section id="perfil" aria-label="Perfil">
+      <p class="manifiesto reveal">Más de cuatro años construyendo sistemas de gestión que empresas de transporte y logística usan a diario. Actualmente coordino el día a día de la plataforma: revisiones de código, dailys, infraestructura y despliegues. Creo en <em>ejecutar bien</em> —código limpio, tests y automatización— y busco un equipo con buenas prácticas donde seguir creciendo.</p>
+    </section>
+
+    <section id="experiencia">
+      <h2 class="reveal">Experiencia</h2>
+
+      <article class="puesto reveal">
+        <div class="anio-caja">
+          <div class="anio">
+            <p class="rango">2024 <b>hoy</b></p>
+            <p class="cuando">2 años y 5 meses<br>Las Palmas · Híbrido</p>
+          </div>
+        </div>
+        <div>
+          <h3>B2B IT</h3>
+          <p class="rol">Desarrollador de software</p>
+          <ul class="logros">
+            <li>Liderazgo del día a día de la plataforma —el ERP a medida de un grupo de transporte, logística y obras—: dailys, revisiones de código y seguimiento de cada versión hasta producción.</li>
+            <li>Operación y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) sobre DigitalOcean y Coolify.</li>
+            <li>Automatización de procesos de negocio: menos trabajo manual y menos errores en el día a día.</li>
+            <li>Integración de la API de OpenAI —la tecnología detrás de ChatGPT— en productos y herramientas internas, por ejemplo para extraer información de documentos de forma automática.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="puesto reveal">
+        <div class="anio-caja">
+          <div class="anio">
+            <p class="rango">2021 <b>2024</b></p>
+            <p class="cuando">2 años y 4 meses<br>Las Palmas · Híbrido</p>
+          </div>
+        </div>
+        <div>
+          <h3>GRUPO1844</h3>
+          <p class="rol">Desarrollador de software</p>
+          <ul class="logros">
+            <li>Desarrollo y mantenimiento de módulos clave de un ERP —el sistema central de gestión— para empresas de transporte de pasajeros.</li>
+            <li>Automatización de procesos internos con impacto directo en la eficiencia operativa del negocio.</li>
+            <li>Desarrollo de APIs para conectar el sistema con servicios externos.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="puesto reveal">
+        <div class="anio-caja">
+          <div class="anio">
+            <p class="rango">2020 <b>2021</b></p>
+            <p class="cuando">6 meses<br>Las Palmas · Prácticas</p>
+          </div>
+        </div>
+        <div>
+          <h3>2Coders Studio</h3>
+          <p class="rol">Desarrollador en prácticas</p>
+          <ul class="logros">
+            <li>Colaboración en el desarrollo de proyectos web con Laravel (PHP), participando en el ciclo de vida completo del software.</li>
+            <li>Base sólida en bases de datos relacionales y control de versiones (Git).</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="proyectos">
+      <h2 class="reveal">Proyectos</h2>
+
+      <div class="tarjetas">
+        <article class="tarjeta reveal">
+          <span class="chip">b2b it</span>
+          <h3>Seguimiento de flotas en tiempo real</h3>
+          <p>Plataforma que muestra en directo dónde está cada vehículo y qué recorrido ha hecho, fluida incluso moviendo grandes volúmenes de posiciones GPS.</p>
+          <span class="tec">PHP (CodeIgniter) · JavaScript · WebGL · MySQL</span>
+        </article>
+
+        <article class="tarjeta reveal">
+          <span class="chip">b2b it</span>
+          <h3>«Montador»: planificador de servicios de logística y obras</h3>
+          <p>Tablero visual con el que el equipo de operaciones organiza el día a día: servicios pendientes, conductores disponibles, vehículos y pedidos en un solo lugar.</p>
+          <span class="tec">PHP (CodeIgniter) · React · MySQL</span>
+        </article>
+
+        <article class="tarjeta reveal">
+          <span class="chip">b2b it</span>
+          <h3>Lectura de documentos con IA (OCR)</h3>
+          <p>Servicio backend que recibe documentos de negocio y extrae sus datos automáticamente mediante la API de visión de OpenAI.</p>
+          <span class="tec">Python · FastAPI · API de OpenAI</span>
+        </article>
+
+        <article class="tarjeta reveal">
+          <span class="chip">b2b it</span>
+          <h3>Servicio de integraciones en .NET</h3>
+          <p>Pieza que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
+          <span class="tec">C# · .NET</span>
+        </article>
+
+        <a class="tarjeta reveal" href="https://github.com/gitfrandu4/vehicle-route-visualization">
+          <span class="chip personal">personal</span>
+          <h3>Rutas de vehículos en 3D sobre Gran Canaria <span class="flecha">↗</span></h3>
+          <p>Herramienta interactiva que anima en tiempo real las trayectorias de vehículos sobre un mapa tridimensional de la isla.</p>
+          <span class="tec">Three.js · WebGL · shaders</span>
+        </a>
+
+        <a class="tarjeta reveal" href="https://github.com/gitfrandu4/yolo-plate-recognition">
+          <span class="chip personal">académico</span>
+          <h3>Lectura automática de matrículas en vídeo <span class="flecha">↗</span></h3>
+          <p>Sistema que detecta y lee matrículas de coches en vídeo mediante visión por computador, en tiempo real.</p>
+          <span class="tec">Python · YOLO · OCR · OpenCV</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <h2 class="reveal">Formación</h2>
+
+      <div class="dos-columnas">
+        <div class="reveal">
+          <article class="grado">
+            <h3>Grado en Ingeniería Informática</h3>
+            <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · 2016 — actualidad</p>
+            <p class="detalle">Pendiente únicamente del Trabajo de Fin de Grado, en curso: sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (C.H.U.I.M.I., Las Palmas).</p>
+          </article>
+          <p class="sub-rotulo">Formación complementaria</p>
+          <ul class="lista-simple">
+            <li>Curso de Testing para PYMES <span>— EOI, 2024 · TDD, Cypress, testing en React, CI/CD</span></li>
+            <li>Programa de Visualización de Datos <span>— EOI, 2023 · Tableau, Power BI, ELK, QGIS</span></li>
+            <li>Desarrollo de apps Android con Kotlin <span>— SPEGC, 2022–2023</span></li>
+            <li>Curso de Especialización en FullStack <span>— EOI, 2021 · Node.js, Angular, MongoDB, AWS</span></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <p class="sub-rotulo" style="margin-top: 0;">Idiomas</p>
+          <ul class="idiomas">
+            <li>Español <span>Nativo</span></li>
+            <li>Inglés <span>Competencia básica profesional</span></li>
+          </ul>
+          <p class="sub-rotulo">Ahora mismo</p>
+          <p class="detalle">Integraciones con Azure y flujos de automatización con n8n autoalojado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aptitudes">
+      <h2 class="reveal">Aptitudes</h2>
+
+      <div class="reveal">
+        <div class="grupo">
+          <h3>Lenguajes</h3>
+          <ul class="pastillas">
+            <li class="destacada">JavaScript</li>
+            <li class="destacada">TypeScript</li>
+            <li class="destacada">PHP</li>
+            <li>Python</li>
+            <li>C#</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Web y APIs</h3>
+          <ul class="pastillas">
+            <li class="destacada">React</li>
+            <li class="destacada">CodeIgniter</li>
+            <li>FastAPI</li>
+            <li>Node.js</li>
+            <li>Angular</li>
+            <li>Laravel</li>
+            <li>HTML y CSS</li>
+            <li>APIs REST</li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Nube e infraestructura</h3>
+          <ul class="pastillas">
+            <li class="destacada">Docker</li>
+            <li class="destacada">DigitalOcean</li>
+            <li class="destacada">CI/CD (GitHub Actions y GitLab)</li>
+            <li>Coolify</li>
+            <li>AWS</li>
+            <li>Azure (aprendiendo)</li>
+            <li>Git y GitHub</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Datos e inteligencia artificial</h3>
+          <ul class="pastillas">
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li class="destacada">API de OpenAI</li>
+            <li>Automatización con n8n</li>
+            <li>Visión por computador (OpenCV)</li>
+            <li>Power BI y Tableau</li>
+            <li>Elastic Stack (ELK)</li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Calidad y equipo</h3>
+          <ul class="pastillas">
+            <li class="destacada">Código limpio</li>
+            <li>Revisión de código</li>
+            <li>TDD y testing automatizado</li>
+            <li>Cypress</li>
+            <li>Scrum</li>
+            <li class="destacada">Trabajo en equipo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2 class="reveal">Contacto</h2>
+      <div class="reveal">
+        <a class="correo" href="mailto:jdelhorno@gmail.com">jdelhorno@gmail.com</a>
+        <ul class="otras-vias">
+          <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin</a></li>
+          <li><a href="https://github.com/gitfrandu4" rel="me">github</a></li>
+          <li><a href="CV-Francisco-Lopez-Dufour.pdf">cv en pdf ↓</a></li>
+          <li><a href="cv.html">versión documento</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <p>Actualizado en julio de 2026 · <a href="cv.html">versión documento</a></p>
+      <p>Hecho con cariño, con Claude Code — light-dark(), view transitions, offset-path · <a href="https://github.com/gitfrandu4/gitfrandu4.github.io">código</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const raiz = document.documentElement;
+    const sinMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // La ruta persigue tu lectura con suavidad (tipo scrub) y con trinquete:
+    // el camino recorrido no se desanda. Sin JS: la ruta se muestra completa.
+    const rutaProgreso = document.querySelector('.ruta-progreso');
+    const bola = document.querySelector('.aqui');
+    if (!sinMovimiento && rutaProgreso && bola) {
+      raiz.classList.add('js-ruta');
+      let avance = 0;      // lo que se ve
+      let objetivo = 0;    // el máximo alcanzado
+      let rodando = false;
+
+      const pintar = () => {
+        rutaProgreso.style.strokeDashoffset = String(100 - avance * 100);
+        bola.style.offsetDistance = (avance * 100).toFixed(3) + '%';
+      };
+      const rodar = () => {
+        avance += (objetivo - avance) * 0.055;
+        if (Math.abs(objetivo - avance) < 0.0005) { avance = objetivo; pintar(); rodando = false; return; }
+        pintar();
+        requestAnimationFrame(rodar);
+      };
+      const medir = () => {
+        const recorrible = raiz.scrollHeight - innerHeight;
+        const aqui = recorrible > 0 ? Math.min(1, scrollY / recorrible) : 0;
+        if (aqui > objetivo) objetivo = aqui;
+        if (!rodando && objetivo !== avance) { rodando = true; requestAnimationFrame(rodar); }
+      };
+      addEventListener('scroll', medir, { passive: true });
+      addEventListener('resize', medir, { passive: true });
+      medir();
+      pintar();
+    }
+
+    // Reveals: se disparan una vez al entrar en el viewport, y ahí se quedan.
+    if (!sinMovimiento && 'IntersectionObserver' in window) {
+      raiz.classList.add('js-reveal');
+      const observador = new IntersectionObserver((entradas) => {
+        for (const entrada of entradas) {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add('a-la-vista');
+            observador.unobserve(entrada.target);
+          }
+        }
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => observador.observe(el));
+    }
+
+    // Tema: recuerda la elección y, si el navegador puede, revela el cambio
+    // con un círculo que nace en el propio botón (View Transitions API).
+    const boton = document.querySelector('.tema');
+    const guardado = localStorage.getItem('tema');
+    if (guardado === 'light' || guardado === 'dark') raiz.dataset.theme = guardado;
+
+    boton.addEventListener('click', () => {
+      const oscuroAhora = raiz.dataset.theme === 'dark' ||
+        (raiz.dataset.theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+      const siguiente = oscuroAhora ? 'light' : 'dark';
+      const aplicar = () => { raiz.dataset.theme = siguiente; localStorage.setItem('tema', siguiente); };
+
+      const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!document.startViewTransition || reducido) { aplicar(); return; }
+
+      const transicion = document.startViewTransition(aplicar);
+      transicion.ready.then(() => {
+        const caja = boton.getBoundingClientRect();
+        const x = caja.left + caja.width / 2;
+        const y = caja.top + caja.height / 2;
+        const radio = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        document.documentElement.animate(
+          { clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${radio}px at ${x}px ${y}px)`] },
+          { duration: 480, easing: 'ease-in-out', pseudoElement: '::view-transition-new(root)' }
+        );
+      });
+    });
+  </script>
+</body>
+</html>

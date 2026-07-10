@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francisco Javier López-Dufour Morales — Desarrollador de software · Las Palmas</title>
+  <meta name="description" content="Desarrollador de software full stack y DevOps: aplicaciones web, sistemas de gestión empresarial, automatización e IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Francisco Javier López-Dufour Morales — Desarrollador de software">
+  <meta property="og:description" content="Full stack y DevOps · Automatización · IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
+  <meta property="og:image" content="https://gitfrandu4.github.io/assets/retrato-color.jpg">
+  <meta property="og:url" content="https://gitfrandu4.github.io/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314506B'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23FBFAF7' text-anchor='middle'%3EFL%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Francisco Javier López-Dufour Morales",
+    "jobTitle": "Desarrollador de software full stack y DevOps",
+    "email": "mailto:jdelhorno@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Las Palmas de Gran Canaria", "addressCountry": "ES" },
+    "alumniOf": "Universidad de Las Palmas de Gran Canaria",
+    "sameAs": [
+      "https://www.linkedin.com/in/frandu4/",
+      "https://github.com/gitfrandu4"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --papel: #FBFAF7;
+      --papel-2: #F3F1E9;
+      --tinta: #1E2B33;
+      --bruma: #5D6B72;
+      --atlantico: #14506B;
+      --atl-oscuro: #0D3A50;
+      --arena: #B08D57;
+      --linea: #E5E1D6;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+      color-scheme: light;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--atlantico);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      text-decoration-color: color-mix(in srgb, var(--atlantico) 40%, transparent);
+      transition: color .15s ease, text-decoration-color .15s ease;
+    }
+    a:hover { color: var(--atl-oscuro); text-decoration-color: var(--atl-oscuro); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--atlantico);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .hoja {
+      max-width: 880px;
+      margin-inline: auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) 2rem;
+      position: relative;
+    }
+
+    /* ---------- Botón imprimir ---------- */
+    .btn-imprimir {
+      position: absolute;
+      top: clamp(1rem, 2.5vw, 2rem);
+      right: clamp(1.25rem, 4vw, 2.5rem);
+      font: 500 0.72rem/1 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bruma);
+      background: none;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 0.55em 1.1em;
+      cursor: pointer;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .btn-imprimir:hover { color: var(--atlantico); border-color: var(--atlantico); }
+
+    /* ---------- Cabecera ---------- */
+    .cabecera {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: end;
+      padding-block: 2.5rem 2.2rem;
+    }
+
+    .contornos {
+      position: absolute;
+      top: -30px;
+      right: -60px;
+      width: 400px;
+      max-width: 60vw;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cabecera-texto { position: relative; z-index: 1; }
+
+    .eyebrow {
+      font: 500 0.75rem/1 var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--atlantico);
+      margin-bottom: 1.1rem;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 2px;
+      background: var(--arena);
+      margin-right: 0.7em;
+      vertical-align: 0.22em;
+    }
+
+    h1 {
+      font: 500 clamp(2.3rem, 6vw, 3.3rem)/1.08 var(--serif);
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
+    .titular {
+      font: 500 1.05rem/1.4 var(--sans);
+      color: var(--atlantico);
+      margin-top: 0.6rem;
+    }
+
+    .contacto {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3em 0;
+      margin-top: 1.3rem;
+      font: 400 0.8rem/1.6 var(--mono);
+      color: var(--bruma);
+    }
+    .contacto li:not(:last-child)::after {
+      content: "·";
+      margin-inline: 0.75em;
+      color: var(--arena);
+    }
+    .contacto a { color: inherit; }
+    .contacto a:hover { color: var(--atlantico); }
+
+    .retrato {
+      position: relative;
+      z-index: 1;
+    }
+    .retrato img {
+      display: block;
+      width: 148px;
+      height: 148px;
+      object-fit: cover;
+      object-position: 50% 18%;
+      border-radius: 14px;
+      border: 1px solid var(--linea);
+    }
+
+    .regla {
+      border: none;
+      border-top: 2px solid var(--tinta);
+    }
+
+    /* Solo visible al imprimir: el PDF enlaza a la versión web */
+    .web-print { display: none; }
+
+    /* ---------- Bloques ---------- */
+    .bloque {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      column-gap: 2.5rem;
+      padding-block: 2.4rem;
+      border-top: 1px solid var(--linea);
+    }
+    .bloque:first-of-type { border-top: none; }
+
+    .rotulo {
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+    }
+    .rotulo h2 {
+      font: 500 0.78rem/1.4 var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--atlantico);
+    }
+    .rotulo h2::before {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 2px;
+      background: var(--arena);
+      margin-bottom: 0.8em;
+    }
+    .rotulo-nota {
+      font: 400 0.72rem/1.5 var(--mono);
+      color: var(--bruma);
+      margin-top: 0.4rem;
+    }
+
+    /* ---------- Perfil ---------- */
+    .lead {
+      font: 500 1.17rem/1.62 var(--serif);
+      max-width: 56ch;
+      text-wrap: pretty;
+    }
+    .lead em {
+      font-style: italic;
+      color: var(--atlantico);
+    }
+
+    /* ---------- Experiencia ---------- */
+    .puesto {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      column-gap: 1.8rem;
+    }
+    .puesto + .puesto { margin-top: 2.3rem; }
+
+    .cuando {
+      font: 400 0.78rem/1.7 var(--mono);
+      color: var(--bruma);
+    }
+    .cuando time {
+      display: block;
+      font-weight: 500;
+      color: var(--tinta);
+    }
+
+    .puesto h3 {
+      font: 600 1.18rem/1.3 var(--serif);
+      letter-spacing: -0.005em;
+    }
+    .rol {
+      font: 500 0.93rem/1.5 var(--sans);
+      color: var(--atlantico);
+      margin-top: 0.15rem;
+    }
+    .logros {
+      list-style: none;
+      margin-top: 0.85rem;
+      max-width: 60ch;
+    }
+    .logros li {
+      position: relative;
+      padding-left: 1.35em;
+      margin-top: 0.5em;
+      font-size: 0.95rem;
+      text-wrap: pretty;
+    }
+    .logros li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--arena);
+    }
+
+    /* ---------- Proyectos ---------- */
+    .grupo-titulo {
+      font: 500 0.72rem/1 var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bruma);
+      margin-bottom: 0.9rem;
+    }
+    .detalle {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--bruma);
+      margin-top: 0.2rem;
+      max-width: 60ch;
+      text-wrap: pretty;
+    }
+    .proyectos-grupo + .proyectos-grupo {
+      margin-top: 1.9rem;
+      padding-top: 1.6rem;
+      border-top: 1px dashed var(--linea);
+    }
+    .proyecto + .proyecto { margin-top: 1.6rem; }
+    .proyecto h3 {
+      font: 600 1.05rem/1.4 var(--serif);
+    }
+    .proyecto h3 a { color: var(--tinta); }
+    .proyecto h3 a:hover { color: var(--atlantico); }
+    .proyecto h3 .flecha {
+      font-family: var(--sans);
+      font-size: 0.85em;
+      color: var(--arena);
+    }
+    .proyecto p {
+      font-size: 0.95rem;
+      color: var(--tinta);
+      max-width: 60ch;
+      margin-top: 0.25rem;
+      text-wrap: pretty;
+    }
+    .proyecto .tec {
+      display: block;
+      font: 400 0.75rem/1.6 var(--mono);
+      color: var(--bruma);
+      margin-top: 0.3rem;
+    }
+
+    /* ---------- Formación ---------- */
+    .grado + .grado { margin-top: 1.5rem; }
+    .grado h3 {
+      font: 600 1.1rem/1.4 var(--serif);
+    }
+    .certs {
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed var(--linea);
+    }
+    .certs-lista { list-style: none; }
+    .certs-lista li {
+      font-size: 0.92rem;
+      color: var(--tinta);
+      margin-top: 0.75em;
+    }
+    .certs-lista li > span:not(.detalle) { color: var(--bruma); font-size: 0.85rem; }
+
+    /* ---------- Aptitudes ---------- */
+    .grupo + .grupo { margin-top: 1.35rem; }
+    .grupo h3 {
+      font: 600 0.82rem/1.5 var(--sans);
+      letter-spacing: 0.02em;
+      color: var(--tinta);
+      margin-bottom: 0.5rem;
+    }
+    .pastillas {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .pastillas li {
+      font: 400 0.84rem/1 var(--sans);
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 0.42em 0.85em;
+      background: var(--papel);
+    }
+    .pastillas li.destacada {
+      border-color: color-mix(in srgb, var(--atlantico) 35%, var(--linea));
+      color: var(--atlantico);
+    }
+
+    /* ---------- Idiomas ---------- */
+    .idiomas {
+      list-style: none;
+      max-width: 40ch;
+    }
+    .idiomas li {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-block: 0.45em;
+      font-size: 0.95rem;
+    }
+    .idiomas li + li { border-top: 1px dashed var(--linea); }
+    .idiomas span { color: var(--bruma); font-size: 0.88rem; }
+
+    /* ---------- Pie ---------- */
+    .pie {
+      border-top: 1px solid var(--linea);
+      padding-block: 1.6rem 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem 2rem;
+      font: 400 0.73rem/1.7 var(--mono);
+      color: var(--bruma);
+    }
+    .pie a { color: inherit; }
+    .pie a:hover { color: var(--atlantico); }
+
+    /* ---------- Animación de entrada (solo cabecera: el documento aparece al instante) ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      .cabecera { animation: aparecer 0.5s ease-out; }
+      @keyframes aparecer {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: none; }
+      }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .cabecera {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding-top: 3.2rem;
+      }
+      .retrato { order: -1; }
+      .retrato img { width: 108px; height: 108px; }
+      .contornos { top: -10px; right: -80px; opacity: 0.75; }
+      .bloque {
+        grid-template-columns: 1fr;
+        row-gap: 1.1rem;
+        padding-block: 1.9rem;
+      }
+      .rotulo { position: static; }
+      .rotulo-nota { display: inline; margin-left: 0.6em; }
+      .puesto { grid-template-columns: 1fr; row-gap: 0.4rem; }
+      .cuando time { display: inline; }
+      .cuando time br { display: none; }
+      .cuando .duracion::before { content: " · "; color: var(--arena); }
+    }
+
+    /* ---------- Impresión (A4, objetivo: 2 páginas) ---------- */
+    @media print {
+      @page { size: A4; margin: 10mm 11mm; }
+      :root { --papel: #ffffff; }
+      body { font-size: 0.8rem; line-height: 1.45; }
+      .hoja { max-width: none; padding: 0; }
+      .btn-imprimir, .contornos { display: none; }
+      .cabecera { padding-block: 0 1rem; gap: 1.5rem; }
+      .web-print {
+        display: block;
+        margin-top: 0.55rem;
+        font: 500 0.72rem/1.4 var(--mono);
+        color: var(--atlantico);
+      }
+      h1 { font-size: 2rem; }
+      .titular { margin-top: 0.4rem; }
+      .contacto { margin-top: 1rem; }
+      .retrato img { width: 90px; height: 90px; }
+      /* El raíl lateral se pliega (como en móvil) para aprovechar el ancho A4 */
+      .bloque { grid-template-columns: 1fr; row-gap: 0.5rem; padding-block: 0.65rem; }
+      .rotulo { position: static; }
+      .rotulo h2::before { display: inline-block; margin: 0 0.7em 0.18em 0; }
+      .rotulo-nota { display: inline; margin-left: 0.6em; }
+      .puesto, .proyecto, .grado, .grupo, .certs { break-inside: avoid; }
+      .puesto + .puesto { margin-top: 1.1rem; }
+      .puesto h3 { font-size: 1.05rem; }
+      .rol { font-size: 0.85rem; margin-top: 0.1rem; }
+      /* Salto de página deliberado: pág. 1 = perfil + experiencia; pág. 2 = el resto.
+         Si la experiencia crece y desborda la pág. 1, revisar este corte. */
+      #proyectos { break-before: page; }
+      /* Proyectos a dos columnas, como las certificaciones */
+      #proyectos .contenido { columns: 2; column-gap: 1.8rem; }
+      .proyecto + .proyecto { margin-top: 0.5rem; }
+      .proyecto h3 { font-size: 0.95rem; }
+      .proyecto p { max-width: none; }
+      .proyectos-grupo + .proyectos-grupo { margin-top: 0.65rem; padding-top: 0.55rem; }
+      .grupo-titulo { font-size: 0.68rem; margin-bottom: 0.6rem; break-after: avoid; }
+      .rotulo { break-after: avoid; }
+      .proyecto .tec { display: none; }
+      .logros { margin-top: 0.4rem; }
+      .logros li { margin-top: 0.25em; }
+      .certs { margin-top: 0.5rem; padding-top: 0.4rem; }
+      .certs-lista { columns: 2; column-gap: 1.6rem; }
+      .certs-lista li { margin-top: 0; margin-bottom: 0.3em; break-inside: avoid; }
+      .detalle { font-size: 0.74rem; max-width: none; }
+      .grupo + .grupo { margin-top: 0.3rem; }
+      .grupo h3 { margin-bottom: 0.1rem; break-after: avoid; }
+      /* En papel, las aptitudes como líneas de texto en lugar de píldoras */
+      .pastillas { display: block; }
+      .pastillas li {
+        display: inline;
+        border: none;
+        padding: 0;
+        background: none;
+        font-size: 0.8rem;
+      }
+      .pastillas li:not(:last-child)::after { content: " · "; color: var(--arena); }
+      .lead { font-size: 0.95rem; line-height: 1.55; max-width: none; }
+      .logros li { font-size: 0.82rem; }
+      .proyecto p { font-size: 0.8rem; }
+      a { text-decoration: none; color: var(--atlantico); }
+      .proyecto h3 a::after {
+        content: " — github.com/gitfrandu4/" attr(data-repo);
+        font: 400 0.7rem var(--mono);
+        color: var(--bruma);
+      }
+      .proyecto h3 .flecha { display: none; }
+      /* Idiomas en una sola fila y sin chrome de sección, para no arrastrar una página extra */
+      #idiomas { break-inside: avoid; border-top: none; padding-block: 0 0.1rem; row-gap: 0; }
+      .idiomas { display: flex; flex-wrap: wrap; gap: 0.4em 2.5rem; max-width: none; }
+      .idiomas li { padding-block: 0; justify-content: flex-start; gap: 0.6em; }
+      .idiomas li + li { border-top: none; }
+      .pie { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hoja">
+    <button class="btn-imprimir" onclick="window.print()" type="button">Guardar como PDF</button>
+
+    <header class="cabecera">
+      <!-- Curvas de nivel de Gran Canaria: guiño cartográfico a la isla desde la que trabajo -->
+      <svg class="contornos" viewBox="0 0 420 380" aria-hidden="true" fill="none">
+        <path d="M210 28c52-6 104 12 138 44 30 28 46 68 42 110-4 44-26 84-62 110-34 25-78 36-120 30-44-6-84-28-110-62C72 226 62 182 72 140c10-44 40-80 78-98 19-9 40-13 60-14Z" stroke="#14506B" stroke-opacity="0.10"/>
+        <path d="M212 62c42-4 84 10 110 36 24 23 36 55 33 88-4 36-22 68-50 88-28 21-63 29-97 24-36-5-68-23-88-50-19-25-27-60-19-94 8-35 32-64 62-79 15-8 32-12 49-13Z" stroke="#14506B" stroke-opacity="0.09"/>
+        <path d="M213 98c32-3 63 8 82 27 18 17 27 41 25 66-3 27-17 51-38 66-21 15-47 21-72 17-27-4-51-17-66-37-14-19-20-45-14-70 6-26 24-48 46-59 11-6 24-9 37-10Z" stroke="#B08D57" stroke-opacity="0.14"/>
+        <path d="M214 134c21-2 42 5 54 18 12 11 18 27 16 43-2 18-11 34-25 44-14 10-31 14-48 11-18-3-33-11-43-24-9-13-13-30-9-46 4-17 16-31 30-39 8-4 16-6 25-7Z" stroke="#14506B" stroke-opacity="0.08"/>
+        <path d="M215 168c11-1 22 3 28 10 6 6 9 14 8 22-1 9-6 17-13 22-7 5-16 7-24 6-9-1-17-6-22-12-5-7-7-16-5-24 2-9 8-16 16-20 4-2 8-3 12-4Z" stroke="#B08D57" stroke-opacity="0.12"/>
+        <!-- Las Palmas, al noreste de la isla -->
+        <circle cx="322" cy="92" r="3.5" fill="#B08D57" fill-opacity="0.5"/>
+      </svg>
+
+      <div class="cabecera-texto">
+        <p class="eyebrow">Currículum</p>
+        <h1>Francisco Javier López&#8209;Dufour Morales</h1>
+        <p class="titular">Desarrollador de software · Full stack y DevOps</p>
+        <ul class="contacto">
+          <li>Las Palmas de Gran Canaria (remoto o presencial)</li>
+          <li><a href="mailto:jdelhorno@gmail.com">jdelhorno@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin.com/in/frandu4</a></li>
+          <li><a href="https://github.com/gitfrandu4" rel="me">github.com/gitfrandu4</a></li>
+        </ul>
+        <p class="web-print">Versión interactiva de este currículum: <a href="https://gitfrandu4.github.io">gitfrandu4.github.io</a></p>
+      </div>
+
+      <figure class="retrato">
+        <img src="assets/retrato-color.jpg" alt="Retrato de Francisco Javier López-Dufour Morales" width="148" height="148">
+      </figure>
+    </header>
+
+    <hr class="regla">
+
+    <section class="bloque" id="perfil" aria-labelledby="t-perfil">
+      <div class="rotulo"><h2 id="t-perfil">Perfil</h2></div>
+      <div class="contenido">
+        <p class="lead">Más de cuatro años construyendo sistemas de gestión que empresas de transporte y logística usan a diario. Actualmente coordino el día a día de la plataforma: revisiones de código, dailys, infraestructura y despliegues. Creo en <em>ejecutar bien</em> —código limpio, tests y automatización— y busco un equipo con buenas prácticas donde seguir creciendo.</p>
+      </div>
+    </section>
+
+    <section class="bloque" id="experiencia" aria-labelledby="t-exp">
+      <div class="rotulo"><h2 id="t-exp">Experiencia</h2></div>
+      <div class="contenido">
+
+        <article class="puesto">
+          <div class="cuando">
+            <time datetime="2024-03">mar. 2024 — <br>actualidad</time>
+            <span class="duracion">2 años y 5 meses</span><br>
+            Las Palmas · Híbrido
+          </div>
+          <div class="que">
+            <h3>B2B IT</h3>
+            <p class="rol">Desarrollador de software</p>
+            <ul class="logros">
+              <li>Liderazgo del día a día de la plataforma —el ERP a medida de un grupo de transporte, logística y obras—: dailys, revisiones de código y seguimiento de cada versión hasta producción.</li>
+              <li>Operación y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) sobre DigitalOcean y Coolify.</li>
+              <li>Automatización de procesos de negocio: menos trabajo manual y menos errores en el día a día.</li>
+              <li>Integración de la API de OpenAI —la tecnología detrás de ChatGPT— en productos y herramientas internas, por ejemplo para extraer información de documentos de forma automática.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="puesto">
+          <div class="cuando">
+            <time datetime="2021-12">dic. 2021 — <br>mar. 2024</time>
+            <span class="duracion">2 años y 4 meses</span><br>
+            Las Palmas · Híbrido
+          </div>
+          <div class="que">
+            <h3>GRUPO1844</h3>
+            <p class="rol">Desarrollador de software</p>
+            <ul class="logros">
+              <li>Desarrollo y mantenimiento de módulos clave de un ERP —el sistema central de gestión— para empresas de transporte de pasajeros.</li>
+              <li>Automatización de procesos internos con impacto directo en la eficiencia operativa del negocio.</li>
+              <li>Desarrollo de APIs para conectar el sistema con servicios externos.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="puesto">
+          <div class="cuando">
+            <time datetime="2020-09">sept. 2020 — <br>feb. 2021</time>
+            <span class="duracion">6 meses</span><br>
+            Las Palmas · Prácticas
+          </div>
+          <div class="que">
+            <h3>2Coders Studio</h3>
+            <p class="rol">Desarrollador en prácticas</p>
+            <ul class="logros">
+              <li>Colaboración en el desarrollo de proyectos web con Laravel (PHP), participando en el ciclo de vida completo del software.</li>
+              <li>Base sólida en bases de datos relacionales y control de versiones (Git).</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="bloque" id="proyectos" aria-labelledby="t-proy">
+      <div class="rotulo"><h2 id="t-proy">Proyectos</h2></div>
+      <div class="contenido">
+
+        <div class="proyectos-grupo">
+          <p class="grupo-titulo">Profesionales · B2B IT</p>
+
+          <article class="proyecto">
+            <h3>Seguimiento de flotas en tiempo real</h3>
+            <p>Plataforma que muestra en directo dónde está cada vehículo y qué recorrido ha hecho, fluida incluso moviendo grandes volúmenes de posiciones GPS.</p>
+            <span class="tec">PHP (CodeIgniter) · JavaScript · WebGL · MySQL</span>
+          </article>
+
+          <article class="proyecto">
+            <h3>«Montador»: planificador de servicios de logística y obras</h3>
+            <p>Tablero visual con el que el equipo de operaciones organiza el día a día: servicios pendientes, conductores disponibles, vehículos y pedidos en un solo lugar.</p>
+            <span class="tec">PHP (CodeIgniter) · React · MySQL</span>
+          </article>
+
+          <article class="proyecto">
+            <h3>Lectura de documentos con IA (OCR)</h3>
+            <p>Servicio backend que recibe documentos de negocio y extrae sus datos automáticamente mediante la API de visión de OpenAI.</p>
+            <span class="tec">Python · FastAPI · API de OpenAI</span>
+          </article>
+
+          <article class="proyecto">
+            <h3>Servicio de integraciones en .NET</h3>
+            <p>Pieza que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
+            <span class="tec">C# · .NET</span>
+          </article>
+        </div>
+
+        <div class="proyectos-grupo">
+          <p class="grupo-titulo">Personales y académicos</p>
+
+          <article class="proyecto">
+            <h3><a href="https://github.com/gitfrandu4/vehicle-route-visualization" data-repo="vehicle-route-visualization">Rutas de vehículos en 3D sobre Gran Canaria <span class="flecha">↗</span></a></h3>
+            <p>Herramienta interactiva que anima en tiempo real las trayectorias de vehículos sobre un mapa tridimensional de la isla.</p>
+            <span class="tec">Three.js · WebGL · shaders</span>
+          </article>
+
+          <article class="proyecto">
+            <h3><a href="https://github.com/gitfrandu4/yolo-plate-recognition" data-repo="yolo-plate-recognition">Lectura automática de matrículas en vídeo <span class="flecha">↗</span></a></h3>
+            <p>Sistema que detecta y lee matrículas de coches en vídeo mediante visión por computador, en tiempo real.</p>
+            <span class="tec">Python · YOLO · OCR · OpenCV</span>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bloque" id="formacion" aria-labelledby="t-form">
+      <div class="rotulo"><h2 id="t-form">Formación</h2></div>
+      <div class="contenido">
+
+        <article class="grado">
+          <h3>Grado en Ingeniería Informática</h3>
+          <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · 2016 — actualidad</p>
+          <span class="detalle">Pendiente únicamente del Trabajo de Fin de Grado, en curso: sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (C.H.U.I.M.I., Las Palmas).</span>
+        </article>
+
+        <div class="certs">
+          <p class="grupo-titulo">Formación complementaria</p>
+          <ul class="certs-lista">
+            <li>Curso de Testing para PYMES <span>— Escuela de Organización Industrial (EOI), 2024</span>
+              <span class="detalle">TDD, tests unitarios, de integración y E2E (Cypress), testing en React y CI/CD con GitHub Actions y GitLab.</span></li>
+            <li>Programa de Visualización de Datos <span>— Escuela de Organización Industrial (EOI), 2023</span>
+              <span class="detalle">Data storytelling con Tableau y Power BI, y análisis espacial con Elastic (ELK) y QGIS.</span></li>
+            <li>Introducción al desarrollo de apps Android con Kotlin <span>— SPEGC, 2022 – 2023</span>
+              <span class="detalle">Kotlin, patrones de diseño en Android y ecosistema Google Play.</span></li>
+            <li>Curso de Especialización en FullStack <span>— Escuela de Organización Industrial (EOI), 2021</span>
+              <span class="detalle">Node.js y Express, Angular, MongoDB y MySQL, APIs REST y DevOps: Docker, AWS y despliegues de alta disponibilidad.</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bloque" id="aptitudes" aria-labelledby="t-apt">
+      <div class="rotulo"><h2 id="t-apt">Aptitudes</h2></div>
+      <div class="contenido">
+
+        <div class="grupo">
+          <h3>Lenguajes</h3>
+          <ul class="pastillas">
+            <li class="destacada">JavaScript</li>
+            <li class="destacada">TypeScript</li>
+            <li class="destacada">PHP</li>
+            <li>Python</li>
+            <li>C#</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Web y APIs</h3>
+          <ul class="pastillas">
+            <li class="destacada">React</li>
+            <li class="destacada">CodeIgniter</li>
+            <li>FastAPI</li>
+            <li>Node.js</li>
+            <li>Angular</li>
+            <li>Laravel</li>
+            <li>HTML y CSS</li>
+            <li>APIs REST</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Nube e infraestructura</h3>
+          <ul class="pastillas">
+            <li class="destacada">Docker</li>
+            <li class="destacada">DigitalOcean</li>
+            <li class="destacada">CI/CD (GitHub Actions y GitLab)</li>
+            <li>Coolify</li>
+            <li>AWS</li>
+            <li>Azure (aprendiendo)</li>
+            <li>Git y GitHub</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Datos e inteligencia artificial</h3>
+          <ul class="pastillas">
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li class="destacada">API de OpenAI</li>
+            <li>Automatización con n8n</li>
+            <li>Visión por computador (OpenCV)</li>
+            <li>Power BI y Tableau</li>
+            <li>Elastic Stack (ELK)</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Calidad y equipo</h3>
+          <ul class="pastillas">
+            <li class="destacada">Código limpio</li>
+            <li>Revisión de código</li>
+            <li>TDD y testing automatizado</li>
+            <li>Cypress</li>
+            <li>Scrum</li>
+            <li class="destacada">Trabajo en equipo</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bloque" id="idiomas" aria-labelledby="t-idi">
+      <div class="rotulo"><h2 id="t-idi">Idiomas</h2></div>
+      <div class="contenido">
+        <ul class="idiomas">
+          <li>Español <span>Nativo</span></li>
+          <li>Inglés <span>Competencia básica profesional</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <p>Actualizado en julio de 2026</p>
+      <p><a href="https://gitfrandu4.github.io">Versión interactiva</a> · <a href="https://github.com/gitfrandu4/gitfrandu4.github.io">ver código</a></p>
+    </footer>
+  </main>
+</body>
+</html>
