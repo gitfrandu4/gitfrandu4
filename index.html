@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Javier López-Dufour Morales — Desarrollador de software · Full stack y DevOps</title>
+  <title>Francisco López-Dufour — Desarrollador full stack y DevOps</title>
   <meta name="description" content="Desarrollador de software full stack y DevOps en Las Palmas de Gran Canaria. Sistemas de gestión, seguimiento de flotas en tiempo real, automatización e IA aplicada. Remoto o presencial.">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Francisco Javier López-Dufour Morales — Desarrollador de software">
   <meta property="og:description" content="Full stack y DevOps · Automatización · IA aplicada. Las Palmas de Gran Canaria — remoto o presencial.">
   <meta property="og:image" content="https://gitfrandu4.github.io/assets/retrato-color.jpg">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Retrato de Francisco Javier López-Dufour Morales">
   <meta property="og:url" content="https://gitfrandu4.github.io/">
   <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://gitfrandu4.github.io/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314506B'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23FBFAF7' text-anchor='middle'%3EFL%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +26,11 @@
     "@type": "Person",
     "name": "Francisco Javier López-Dufour Morales",
     "jobTitle": "Desarrollador de software full stack y DevOps",
+    "url": "https://gitfrandu4.github.io/",
+    "image": "https://gitfrandu4.github.io/assets/retrato-color.jpg",
     "email": "mailto:jdelhorno@gmail.com",
+    "worksFor": { "@type": "Organization", "name": "B2B IT" },
+    "knowsLanguage": ["es", "en"],
     "address": { "@type": "PostalAddress", "addressLocality": "Las Palmas de Gran Canaria", "addressCountry": "ES" },
     "alumniOf": "Universidad de Las Palmas de Gran Canaria",
     "sameAs": [
@@ -29,6 +38,13 @@
       "https://github.com/gitfrandu4"
     ]
   }
+  </script>
+  <script>
+    // Aplica el tema guardado antes del primer pintado para evitar el destello de tema incorrecto
+    try {
+      const t = localStorage.getItem('tema');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) { /* almacenamiento no disponible: se queda en auto */ }
   </script>
   <style>
     /* ============ Tokens compartidos con cv.html, en claro y oscuro ============ */
@@ -146,6 +162,20 @@
     }
 
     /* ============ Navegación ============ */
+    .saltar {
+      position: absolute;
+      top: -100%;
+      left: 10px;
+      z-index: 60;
+      background: var(--papel);
+      color: var(--atl);
+      border: 1px solid var(--atl);
+      border-radius: 8px;
+      padding: 0.55em 1em;
+      font: 500 0.78rem/1 var(--mono);
+      text-decoration: none;
+    }
+    .saltar:focus { top: 10px; }
     .nav {
       position: fixed;
       inset: 10px 10px auto 10px;
@@ -346,9 +376,9 @@
     .anio .rango {
       font: 500 1.45rem/1.15 var(--mono);
       letter-spacing: -0.04em;
-      color: color-mix(in srgb, var(--bruma) 42%, var(--papel));
+      color: color-mix(in srgb, var(--bruma) 75%, var(--papel));
     }
-    .anio .rango b { display: block; font-weight: 500; color: var(--arena); }
+    .anio .rango b { display: block; font-weight: 500; color: light-dark(#8A6C3C, #C9A76B); }
     .anio .cuando {
       margin-top: 0.5rem;
       font: 400 0.72rem/1.7 var(--mono);
@@ -532,6 +562,7 @@
   </style>
 </head>
 <body>
+  <a class="saltar" href="#top">Saltar al contenido</a>
   <!-- Gran Canaria en curvas de nivel. La ruta se dibuja al leer: el punto arena marca por dónde vas. -->
   <svg class="isla" viewBox="0 0 440 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <path class="contorno" d="M230 30c57-7 114 13 151 48 33 31 51 75 46 121-4 48-28 92-68 121-37 27-85 39-131 33-48-7-92-31-120-68C80 248 69 200 80 154c11-48 44-88 85-107 21-11 44-15 65-17Z"/>
@@ -573,14 +604,15 @@
           <li><a href="mailto:jdelhorno@gmail.com">jdelhorno@gmail.com</a></li>
           <li><a href="https://github.com/gitfrandu4" rel="me">github</a></li>
           <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin</a></li>
-          <li><a href="cv.html">versión documento</a></li>
+          <li><a href="cv.html">versión imprimible</a></li>
         </ul>
       </div>
-      <img class="retrato" src="assets/retrato-bn.jpg" alt="Retrato en blanco y negro de Francisco Javier López-Dufour Morales" width="224" height="280">
+      <img class="retrato" src="assets/retrato-bn-448.jpg" alt="Retrato en blanco y negro de Francisco Javier López-Dufour Morales" width="224" height="280" fetchpriority="high" decoding="async">
     </header>
 
+    <!-- SYNC: el texto de perfil, experiencia, proyectos y competencias está duplicado en cv.html — replicar allí cualquier cambio (ver README) -->
     <section id="perfil" aria-label="Perfil">
-      <p class="manifiesto reveal">Más de cuatro años construyendo sistemas de gestión que empresas de transporte y logística usan a diario. Actualmente coordino el día a día de la plataforma: revisiones de código, dailys, infraestructura y despliegues. Creo en <em>ejecutar bien</em> —código limpio, tests y automatización— y busco un equipo con buenas prácticas donde seguir creciendo.</p>
+      <p class="manifiesto reveal">Llevo más de cuatro años desarrollando sistemas de gestión (ERP) que empresas de transporte, logística y obras utilizan a diario. Actualmente coordino el ciclo de desarrollo de la plataforma —revisiones de código, reuniones diarias, infraestructura y despliegues a producción—, con atención a la <em>calidad</em> del código, las pruebas y la automatización. Me gusta formar parte de un equipo con buenas prácticas donde seguir creciendo.</p>
     </section>
 
     <section id="experiencia">
@@ -590,17 +622,17 @@
         <div class="anio-caja">
           <div class="anio">
             <p class="rango">2024 <b>hoy</b></p>
-            <p class="cuando">2 años y 5 meses<br>Las Palmas · Híbrido</p>
+            <p class="cuando">Las Palmas · Híbrido</p>
           </div>
         </div>
         <div>
           <h3>B2B IT</h3>
           <p class="rol">Desarrollador de software</p>
           <ul class="logros">
-            <li>Liderazgo del día a día de la plataforma —el ERP a medida de un grupo de transporte, logística y obras—: dailys, revisiones de código y seguimiento de cada versión hasta producción.</li>
-            <li>Operación y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) sobre DigitalOcean y Coolify.</li>
-            <li>Automatización de procesos de negocio: menos trabajo manual y menos errores en el día a día.</li>
-            <li>Integración de la API de OpenAI —la tecnología detrás de ChatGPT— en productos y herramientas internas, por ejemplo para extraer información de documentos de forma automática.</li>
+            <li>Coordinación de un equipo interdisciplinar de 5 personas en el desarrollo de la plataforma —ERP a medida para un grupo de transporte, logística y obras, con unos 200 usuarios—: reuniones diarias, revisiones de código y seguimiento de cada versión hasta su despliegue semanal en producción.</li>
+            <li>Administración y mantenimiento de la infraestructura: servidores, contenedores (Docker) y despliegues automatizados (CI/CD) en DigitalOcean y Coolify.</li>
+            <li>Automatización de procesos de negocio, reduciendo el trabajo manual y los errores operativos.</li>
+            <li>Integración de la API de OpenAI en productos y herramientas internas; por ejemplo, extracción automática de información de documentos.</li>
           </ul>
         </div>
       </article>
@@ -616,7 +648,7 @@
           <h3>GRUPO1844</h3>
           <p class="rol">Desarrollador de software</p>
           <ul class="logros">
-            <li>Desarrollo y mantenimiento de módulos clave de un ERP —el sistema central de gestión— para empresas de transporte de pasajeros.</li>
+            <li>Desarrollo y mantenimiento de módulos clave de un ERP para empresas de transporte de pasajeros, con cerca de 1000 usuarios.</li>
             <li>Automatización de procesos internos con impacto directo en la eficiencia operativa del negocio.</li>
             <li>Desarrollo de APIs para conectar el sistema con servicios externos.</li>
           </ul>
@@ -634,8 +666,8 @@
           <h3>2Coders Studio</h3>
           <p class="rol">Desarrollador en prácticas</p>
           <ul class="logros">
-            <li>Colaboración en el desarrollo de proyectos web con Laravel (PHP), participando en el ciclo de vida completo del software.</li>
-            <li>Base sólida en bases de datos relacionales y control de versiones (Git).</li>
+            <li>Desarrollo de proyectos web con Laravel (PHP), participando en todo el ciclo de vida del software.</li>
+            <li>Uso de bases de datos relacionales y control de versiones (Git) en proyectos reales.</li>
           </ul>
         </div>
       </article>
@@ -648,14 +680,14 @@
         <article class="tarjeta reveal">
           <span class="chip">b2b it</span>
           <h3>Seguimiento de flotas en tiempo real</h3>
-          <p>Plataforma que muestra en directo dónde está cada vehículo y qué recorrido ha hecho, fluida incluso moviendo grandes volúmenes de posiciones GPS.</p>
+          <p>Plataforma que muestra en directo la posición y el recorrido de una flota de más de 400 vehículos, con un rendimiento fluido incluso con grandes volúmenes de posiciones GPS.</p>
           <span class="tec">PHP (CodeIgniter) · JavaScript · WebGL · MySQL</span>
         </article>
 
         <article class="tarjeta reveal">
           <span class="chip">b2b it</span>
           <h3>«Montador»: planificador de servicios de logística y obras</h3>
-          <p>Tablero visual con el que el equipo de operaciones organiza el día a día: servicios pendientes, conductores disponibles, vehículos y pedidos en un solo lugar.</p>
+          <p>Tablero visual con el que el equipo de operaciones planifica su trabajo: servicios pendientes, conductores disponibles, vehículos y pedidos en una sola vista.</p>
           <span class="tec">PHP (CodeIgniter) · React · MySQL</span>
         </article>
 
@@ -669,7 +701,7 @@
         <article class="tarjeta reveal">
           <span class="chip">b2b it</span>
           <h3>Servicio de integraciones en .NET</h3>
-          <p>Pieza que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
+          <p>Servicio que centraliza las integraciones con terceros: recepción de la señal GPS de los vehículos y predicción de retrasos en el servicio.</p>
           <span class="tec">C# · .NET</span>
         </article>
 
@@ -683,7 +715,7 @@
         <a class="tarjeta reveal" href="https://github.com/gitfrandu4/yolo-plate-recognition">
           <span class="chip personal">académico</span>
           <h3>Lectura automática de matrículas en vídeo <span class="flecha">↗</span></h3>
-          <p>Sistema que detecta y lee matrículas de coches en vídeo mediante visión por computador, en tiempo real.</p>
+          <p>Sistema que detecta y lee en tiempo real matrículas de vehículos en vídeo mediante visión artificial.</p>
           <span class="tec">Python · YOLO · OCR · OpenCV</span>
         </a>
       </div>
@@ -696,8 +728,8 @@
         <div class="reveal">
           <article class="grado">
             <h3>Grado en Ingeniería Informática</h3>
-            <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · 2016 — actualidad</p>
-            <p class="detalle">Pendiente únicamente del Trabajo de Fin de Grado, en curso: sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (C.H.U.I.M.I., Las Palmas).</p>
+            <p class="rol">Universidad de Las Palmas de Gran Canaria (ULPGC) · finalización prevista: 2026</p>
+            <p class="detalle">Pendiente únicamente del Trabajo de Fin de Grado (en curso): sistema de procesamiento y consulta de informes para los simuladores médicos del laboratorio MOTIVA (CHUIMI, Las Palmas). Compaginado con trabajo en el sector desde 2020.</p>
           </article>
           <p class="sub-rotulo">Formación complementaria</p>
           <ul class="lista-simple">
@@ -711,23 +743,23 @@
           <p class="sub-rotulo" style="margin-top: 0;">Idiomas</p>
           <ul class="idiomas">
             <li>Español <span>Nativo</span></li>
-            <li>Inglés <span>Competencia básica profesional</span></li>
+            <li>Inglés <span>B1 — lectura fluida de documentación técnica</span></li>
           </ul>
-          <p class="sub-rotulo">Ahora mismo</p>
+          <p class="sub-rotulo">Actualmente</p>
           <p class="detalle">Integraciones con Azure y flujos de automatización con n8n autoalojado.</p>
         </div>
       </div>
     </section>
 
     <section id="aptitudes">
-      <h2 class="reveal">Aptitudes</h2>
+      <h2 class="reveal">Competencias</h2>
 
       <div class="reveal">
         <div class="grupo">
           <h3>Lenguajes</h3>
           <ul class="pastillas">
             <li class="destacada">JavaScript</li>
-            <li class="destacada">TypeScript</li>
+            <li>TypeScript</li>
             <li class="destacada">PHP</li>
             <li>Python</li>
             <li>C#</li>
@@ -755,7 +787,6 @@
             <li class="destacada">CI/CD (GitHub Actions y GitLab)</li>
             <li>Coolify</li>
             <li>AWS</li>
-            <li>Azure (aprendiendo)</li>
             <li>Git y GitHub</li>
             <li>Linux</li>
           </ul>
@@ -768,20 +799,18 @@
             <li>MongoDB</li>
             <li class="destacada">API de OpenAI</li>
             <li>Automatización con n8n</li>
-            <li>Visión por computador (OpenCV)</li>
+            <li>Visión artificial (OpenCV)</li>
             <li>Power BI y Tableau</li>
             <li>Elastic Stack (ELK)</li>
           </ul>
         </div>
         <div class="grupo">
-          <h3>Calidad y equipo</h3>
+          <h3>Calidad</h3>
           <ul class="pastillas">
-            <li class="destacada">Código limpio</li>
-            <li>Revisión de código</li>
-            <li>TDD y testing automatizado</li>
+            <li class="destacada">Revisión de código</li>
+            <li class="destacada">TDD y testing automatizado</li>
             <li>Cypress</li>
             <li>Scrum</li>
-            <li class="destacada">Trabajo en equipo</li>
           </ul>
         </div>
       </div>
@@ -795,14 +824,14 @@
           <li><a href="https://www.linkedin.com/in/frandu4/" rel="me">linkedin</a></li>
           <li><a href="https://github.com/gitfrandu4" rel="me">github</a></li>
           <li><a href="CV-Francisco-Lopez-Dufour.pdf">cv en pdf ↓</a></li>
-          <li><a href="cv.html">versión documento</a></li>
+          <li><a href="cv.html">versión imprimible</a></li>
         </ul>
       </div>
     </section>
 
     <footer class="pie">
-      <p>Actualizado en julio de 2026 · <a href="cv.html">versión documento</a></p>
-      <p>Hecho con cariño, con Claude Code — light-dark(), view transitions, offset-path · <a href="https://github.com/gitfrandu4/gitfrandu4.github.io">código</a></p>
+      <p>Actualizado en julio de 2026 · <a href="cv.html">versión imprimible</a></p>
+      <p>Hecho con cariño usando Claude Code — light-dark(), view transitions, offset-path · <a href="https://github.com/gitfrandu4/gitfrandu4.github.io">código</a></p>
     </footer>
   </main>
 
@@ -856,17 +885,27 @@
       document.querySelectorAll('.reveal').forEach((el) => observador.observe(el));
     }
 
+    // Si el usuario activa "reducir movimiento" con la página abierta, ruta y reveals se detienen.
+    matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+      if (e.matches) raiz.classList.remove('js-ruta', 'js-reveal');
+    });
+
     // Tema: recuerda la elección y, si el navegador puede, revela el cambio
     // con un círculo que nace en el propio botón (View Transitions API).
+    // El tema guardado ya se aplicó en el <head>, antes del primer pintado.
     const boton = document.querySelector('.tema');
-    const guardado = localStorage.getItem('tema');
-    if (guardado === 'light' || guardado === 'dark') raiz.dataset.theme = guardado;
+    const estaOscuro = () => raiz.dataset.theme === 'dark' ||
+      (raiz.dataset.theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+    const rotular = () => boton.setAttribute('aria-label', estaOscuro() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+    rotular();
 
     boton.addEventListener('click', () => {
-      const oscuroAhora = raiz.dataset.theme === 'dark' ||
-        (raiz.dataset.theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
-      const siguiente = oscuroAhora ? 'light' : 'dark';
-      const aplicar = () => { raiz.dataset.theme = siguiente; localStorage.setItem('tema', siguiente); };
+      const siguiente = estaOscuro() ? 'light' : 'dark';
+      const aplicar = () => {
+        raiz.dataset.theme = siguiente;
+        try { localStorage.setItem('tema', siguiente); } catch (e) { /* sin persistencia */ }
+        rotular();
+      };
 
       const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!document.startViewTransition || reducido) { aplicar(); return; }
